@@ -7,9 +7,6 @@ audio.onloadedmetadata = ()=>{
 }
 play.addEventListener("click",()=>{
         audio.play();
-    setInterval(()=>{
-            progress.value=audio.currentTime;
-        },500);
         play.style.display="none";
         pause.style.display="block";
 });
@@ -20,17 +17,21 @@ pause.addEventListener("click",()=>{
 });
 
 let progress= document.getElementById("progress");
-
+if(audio.play()){
+    setInterval(()=>{
+            progress.value=audio.currentTime;
+        },500);
+     play.style.display="none";
+    pause.style.display="block";
+}
 
 progress.onchange=()=>{
     audio.play();
     audio.currentTime=progress.value;
     play.style.display="none";
     pause.style.display="block";
-        setInterval(()=>{
-            progress.value=audio.currentTime;
-        },500);
 }
+
 
 
 
