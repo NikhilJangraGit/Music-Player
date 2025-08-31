@@ -24,13 +24,13 @@ let progress= document.getElementById("progress");
 
 progress.onchange=()=>{
     audio.play();
-    setInterval(()=>{
-            progress.value=audio.currentTime;
-        },500);
     audio.currentTime=progress.value;
     play.style.display="none";
     pause.style.display="block";
-
+        setInterval(()=>{
+            progress.value=audio.currentTime;
+        },500);
 }
+
 
 
