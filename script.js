@@ -4,6 +4,7 @@ let audio = document.getElementById("audio");
 audio.onloadedmetadata = ()=>{
     progress.max=audio.duration;
     progress.value=audio.currentTime;
+    audio.play();
 }
 play.addEventListener("click",()=>{
         audio.play();
@@ -30,4 +31,5 @@ progress.onchange=()=>{
     audio.currentTime=progress.value;
     play.style.display="none";
     pause.style.display="block";
+
 }
